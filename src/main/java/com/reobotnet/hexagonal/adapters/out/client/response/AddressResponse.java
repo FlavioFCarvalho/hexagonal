@@ -1,6 +1,8 @@
 package com.reobotnet.hexagonal.adapters.out.client.response;
 
+import lombok.Data;
 
+@Data
 public class AddressResponse {
 
     private String street;

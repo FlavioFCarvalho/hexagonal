@@ -78,6 +78,11 @@
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+		    <groupId>org.mapstruct</groupId>
+		    <artifactId>mapstruct</artifactId>
+		    <version>1.5.5.Final</version> <!-- Verifique a versão mais recente no site oficial -->
+		</dependency>
     </dependencies>
 
     <build>
