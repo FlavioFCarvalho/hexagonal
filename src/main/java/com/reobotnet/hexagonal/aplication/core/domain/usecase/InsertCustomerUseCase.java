@@ -1,10 +1,11 @@
 package com.reobotnet.hexagonal.aplication.core.domain.usecase;
 
 import com.reobotnet.hexagonal.aplication.core.domain.Customer;
+import com.reobotnet.hexagonal.aplication.ports.in.InsertCustomerInputPort;
 import com.reobotnet.hexagonal.aplication.ports.out.FindAddressByZipcodeOutPutPort;
 import com.reobotnet.hexagonal.aplication.ports.out.InsertCustomerOutPutPort;
 
-public class InsertCustomerUseCase {
+public class InsertCustomerUseCase  implements InsertCustomerInputPort {
 	
 	private final FindAddressByZipcodeOutPutPort findAddressByZipcodeOutPutPort;
 	
@@ -18,7 +19,7 @@ public class InsertCustomerUseCase {
 		this.insertCustomerOutPutPort = insertCustomerOutPutPort;
 	}
 	
-	
+	@Override
 	public void insert(Customer customer, String zipCode) {
 		
 		var address = findAddressByZipcodeOutPutPort.find(zipCode);
