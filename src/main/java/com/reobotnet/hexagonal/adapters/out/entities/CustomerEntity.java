@@ -1,4 +1,4 @@
-package com.reobotnet.hexagonal.adapters.out.repository.entity;
+package com.reobotnet.hexagonal.adapters.out.entities;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
