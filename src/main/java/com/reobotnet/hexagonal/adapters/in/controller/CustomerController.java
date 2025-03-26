@@ -7,6 +7,7 @@ import com.reobotnet.hexagonal.adapters.in.controller.response.CustomerResponse;
 import com.reobotnet.hexagonal.aplication.core.domain.Customer;
 import com.reobotnet.hexagonal.aplication.ports.in.FindCustomerByIdInputPort;
 import com.reobotnet.hexagonal.aplication.ports.in.InsertCustomerInputPort;
+import com.reobotnet.hexagonal.aplication.ports.in.UpdateCustomerInputPort;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,11 @@ public class CustomerController {
     private FindCustomerByIdInputPort findCustomerByIdInputPort;
 
     @Autowired
+    private UpdateCustomerInputPort updateCustomerInputPort;
+
+
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -37,5 +43,16 @@ public class CustomerController {
         var customer = findCustomerByIdInputPort.find(id);
         var customerResponse = customerMapper.toCustomerResponse(customer);
         return ResponseEntity.ok().body(customerResponse);
+    }
+
+    @PutMapping
+    public ResponseEntity<Void> update(
+            @PathVariable final String id,
+            @Valid @RequestBody CustomerRequest customerRequest) {
+
+        Customer customer = customerMapper.toCustomer(customerRequest);
+        customer.setId(id);
+        updateCustomerInputPort.update(customer, customerRequest.getZipCode());
+        return ResponseEntity.noContent().build();
     }
 }
