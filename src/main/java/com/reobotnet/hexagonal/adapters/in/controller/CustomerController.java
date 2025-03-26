@@ -3,8 +3,6 @@ package com.reobotnet.hexagonal.adapters.in.controller;
 
 import com.reobotnet.hexagonal.adapters.in.controller.mapper.CustomerMapper;
 import com.reobotnet.hexagonal.adapters.in.controller.request.CustomerRequest;
-import com.reobotnet.hexagonal.adapters.out.repository.CustomerRepository;
-import com.reobotnet.hexagonal.aplication.core.domain.Customer;
 import com.reobotnet.hexagonal.aplication.ports.in.InsertCustomerInputPort;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +26,6 @@ public class CustomerController {
     public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest) {
         var customer = customerMapper.toCustomer(customerRequest);
         insertCustomerInputPort.insert(customer, customerRequest.getZipCode());
+        return ResponseEntity.ok().build();
     }
 }
