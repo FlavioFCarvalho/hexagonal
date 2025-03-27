@@ -5,6 +5,7 @@ import com.reobotnet.hexagonal.adapters.in.controller.mapper.CustomerMapper;
 import com.reobotnet.hexagonal.adapters.in.controller.request.CustomerRequest;
 import com.reobotnet.hexagonal.adapters.in.controller.response.CustomerResponse;
 import com.reobotnet.hexagonal.aplication.core.domain.Customer;
+import com.reobotnet.hexagonal.aplication.ports.in.DeleteCustomerByIdInputPort;
 import com.reobotnet.hexagonal.aplication.ports.in.FindCustomerByIdInputPort;
 import com.reobotnet.hexagonal.aplication.ports.in.InsertCustomerInputPort;
 import com.reobotnet.hexagonal.aplication.ports.in.UpdateCustomerInputPort;
@@ -25,6 +26,9 @@ public class CustomerController {
 
     @Autowired
     private UpdateCustomerInputPort updateCustomerInputPort;
+
+    @Autowired
+    private DeleteCustomerByIdInputPort deleteCustomerByIdInputPort;
 
 
 
@@ -55,4 +59,11 @@ public class CustomerController {
         updateCustomerInputPort.update(customer, customerRequest.getZipCode());
         return ResponseEntity.noContent().build();
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final String id) {
+        deleteCustomerByIdInputPort.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
