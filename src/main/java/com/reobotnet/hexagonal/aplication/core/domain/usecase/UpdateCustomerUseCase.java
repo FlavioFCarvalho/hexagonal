@@ -6,7 +6,7 @@ import com.reobotnet.hexagonal.aplication.ports.in.UpdateCustomerInputPort;
 import com.reobotnet.hexagonal.aplication.ports.out.FindAddressByZipcodeOutPutPort;
 import com.reobotnet.hexagonal.aplication.ports.out.UpdateCustomerOutputPort;
 
-public class UpdaterCustomerUseCase implements UpdateCustomerInputPort {
+public class UpdateCustomerUseCase implements UpdateCustomerInputPort {
 
     private final FindCustomerByIdInputPort findCustomerByIdInputPort;
 
@@ -14,7 +14,7 @@ public class UpdaterCustomerUseCase implements UpdateCustomerInputPort {
 
     private final UpdateCustomerOutputPort updateCustomerOutputPort;
 
-    public UpdaterCustomerUseCase(
+    public UpdateCustomerUseCase(
             FindCustomerByIdInputPort findCustomerByIdInputPort,
             FindAddressByZipcodeOutPutPort findAddressByZipcodeOutPutPort,
             UpdateCustomerOutputPort updateCustomerOutputPort

@@ -1,8 +1,8 @@
 package com.reobotnet.hexagonal.config;
 
 
-import com.reobotnet.hexagonal.adapters.out.FindCustomerIdByIdAdapter;
-import com.reobotnet.hexagonal.aplication.core.domain.usecase.FindCutomerByIdUseCase;
+import com.reobotnet.hexagonal.adapters.out.FindCustomerByIdAdapter;
+import com.reobotnet.hexagonal.aplication.core.domain.usecase.FindCustomerByIdUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
 public class FindCustomerByIdConfig {
 
     @Bean
-    public FindCutomerByIdUseCase findCutomerByIdUseCase(
-            FindCustomerIdByIdAdapter findCustomerByIdAdapter
+    public FindCustomerByIdUseCase findCutomerByIdUseCase(
+            FindCustomerByIdAdapter findCustomerByIdAdapter
     ) {
-        return new FindCutomerByIdUseCase(findCustomerByIdAdapter);
+        return new FindCustomerByIdUseCase(findCustomerByIdAdapter);
     }
 }

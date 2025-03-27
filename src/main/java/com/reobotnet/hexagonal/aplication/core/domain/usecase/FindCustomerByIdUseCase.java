@@ -7,11 +7,11 @@ import com.reobotnet.hexagonal.aplication.core.util.MessageUtil;
 import com.reobotnet.hexagonal.aplication.ports.in.FindCustomerByIdInputPort;
 import com.reobotnet.hexagonal.aplication.ports.out.FindCustomerByIdOutPutPort;
 
-public class FindCutomerByIdUseCase implements FindCustomerByIdInputPort {
+public class FindCustomerByIdUseCase implements FindCustomerByIdInputPort {
 
     private final FindCustomerByIdOutPutPort findCustomerByIdOutPutPort;
 
-    public FindCutomerByIdUseCase(FindCustomerByIdOutPutPort findCustomerByIdOutPutPort) {
+    public FindCustomerByIdUseCase(FindCustomerByIdOutPutPort findCustomerByIdOutPutPort) {
         this.findCustomerByIdOutPutPort = findCustomerByIdOutPutPort;
     }
 
