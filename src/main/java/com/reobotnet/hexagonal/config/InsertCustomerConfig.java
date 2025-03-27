@@ -2,6 +2,7 @@ package com.reobotnet.hexagonal.config;
 
 import com.reobotnet.hexagonal.adapters.out.FindAddressByZipCodeAdapter;
 import com.reobotnet.hexagonal.adapters.out.InsertCustomerAdapter;
+import com.reobotnet.hexagonal.adapters.out.SendCpfValidationAdapter;
 import com.reobotnet.hexagonal.aplication.core.domain.usecase.InsertCustomerUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +13,10 @@ public class InsertCustomerConfig {
     @Bean
     public InsertCustomerUseCase insertCustomerUseCase(
             FindAddressByZipCodeAdapter findAddressByZipCodeAdapter,
-            InsertCustomerAdapter insertCustomerAdapter
+            InsertCustomerAdapter insertCustomerAdapter,
+            SendCpfValidationAdapter sendCpfValidationAdapter
     ) {
-        return new InsertCustomerUseCase(findAddressByZipCodeAdapter,insertCustomerAdapter);
+        return new InsertCustomerUseCase(findAddressByZipCodeAdapter,insertCustomerAdapter,sendCpfValidationAdapter);
     }
 
 }
